@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}View Report - Healthcare System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Medical Report</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5>Report Details</h5>
+                    <p><strong>Hash Value:</strong> {{ hash_value }}</p>
+                    <p><strong>Generated At:</strong> {{ datetime.now().strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                </div>
+
+                <div class="report-content mb-4">
+                    <h5>Report Content</h5>
+                    <div class="border p-3 bg-light">
+                        {{ report | safe }}
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <h5>Security Information</h5>
+                    <p>This report is secured using blockchain technology. The hash value above ensures the integrity of the report.</p>
+                    <p>Any modification to the report will result in a different hash value, making tampering detectable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

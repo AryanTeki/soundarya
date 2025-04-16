@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Healthcare System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mb-4">Welcome to Healthcare System</h1>
+        <p class="lead">A secure platform for managing medical records using blockchain technology</p>
+        
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">For Doctors</h5>
+                        <p class="card-text">Manage appointments and securely store patient reports</p>
+                        <a href="{{ url_for('register') }}" class="btn btn-primary">Register as Doctor</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">For Patients</h5>
+                        <p class="card-text">Book appointments and access your medical reports securely</p>
+                        <a href="{{ url_for('register') }}" class="btn btn-primary">Register as Patient</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h3>Key Features</h3>
+            <ul class="list-unstyled">
+                <li class="mb-2">✓ Secure storage of medical records using blockchain</li>
+                <li class="mb-2">✓ Encrypted data transmission</li>
+                <li class="mb-2">✓ Tamper-proof medical reports</li>
+                <li class="mb-2">✓ Easy appointment management</li>
+                <li class="mb-2">✓ Secure doctor-patient communication</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %} 

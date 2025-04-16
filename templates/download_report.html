@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Download Medical Report - Healthcare System{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Download Medical Report</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('download_report') }}">
+                        <div class="mb-3">
+                            <label for="appointment_id" class="form-label">Appointment ID</label>
+                            <input type="text" class="form-control" id="appointment_id" name="appointment_id" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hash1" class="form-label">First Hash Value</label>
+                            <input type="text" class="form-control" id="hash1" name="hash1" required>
+                            <small class="text-muted">Enter the first hash value provided by your doctor</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hash2" class="form-label">Second Hash Value</label>
+                            <input type="text" class="form-control" id="hash2" name="hash2" required>
+                            <small class="text-muted">Enter the second hash value provided by your doctor</small>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Download Report</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

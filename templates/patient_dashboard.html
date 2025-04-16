@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Dashboard - Healthcare System{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Patient Dashboard</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Your Appointments</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Symptoms</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in appointments %}
+                    <tr>
+                        <td>{{ item.doctor.name }}</td>
+                        <td>{{ item.appointment.date.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ item.appointment.symptoms }}</td>
+                        <td>{{ item.appointment.status }}</td>
+                        <td>
+                            {% if item.appointment.report_hash %}
+                            <a href="{{ url_for('view_report', appointment_id=item.appointment.id) }}" class="btn btn-primary">View Report</a>
+                            {% else %}
+                            <span class="text-muted">No report yet</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="{{ url_for('book_appointment') }}" class="btn btn-success">Book New Appointment</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 
